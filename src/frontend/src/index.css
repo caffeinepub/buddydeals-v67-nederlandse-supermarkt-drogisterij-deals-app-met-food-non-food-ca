@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Supermarket atmosphere theme - warm, natural colors */
+    --background: oklch(97% 0.01 120);
+    --foreground: oklch(20% 0 0);
+    --card: oklch(98% 0.01 120);
+    --card-foreground: oklch(20% 0 0);
+    --popover: oklch(98% 0.01 120);
+    --popover-foreground: oklch(20% 0 0);
+    --primary: oklch(60% 0.15 180);
+    --primary-foreground: oklch(100% 0 0);
+    --secondary: oklch(65% 0.12 210);
+    --secondary-foreground: oklch(15% 0 0);
+    --accent: oklch(70% 0.10 150);
+    --accent-foreground: oklch(15% 0 0);
+    --muted: oklch(94% 0.01 120);
+    --muted-foreground: oklch(45% 0 0);
+    --destructive: oklch(55% 0.20 25);
+    --destructive-foreground: oklch(100% 0 0);
+    --border: oklch(88% 0.01 120);
+    --input: oklch(88% 0.01 120);
+    --ring: oklch(60% 0.15 180);
+    --radius: 1rem;
+    --success: oklch(65% 0.15 145);
+    --warning: oklch(75% 0.15 85);
+    
+    /* Supermarket atmosphere colors */
+    --supermarket-green: oklch(75% 0.12 140);
+    --supermarket-wood: oklch(65% 0.08 60);
+    --supermarket-fresh: oklch(85% 0.08 150);
+  }
+
+  .dark {
+    --background: oklch(18% 0.01 120);
+    --foreground: oklch(98% 0 0);
+    --card: oklch(20% 0.01 120);
+    --card-foreground: oklch(98% 0 0);
+    --popover: oklch(20% 0.01 120);
+    --popover-foreground: oklch(98% 0 0);
+    --primary: oklch(65% 0.15 180);
+    --primary-foreground: oklch(15% 0 0);
+    --secondary: oklch(70% 0.12 210);
+    --secondary-foreground: oklch(15% 0 0);
+    --accent: oklch(75% 0.10 150);
+    --accent-foreground: oklch(15% 0 0);
+    --muted: oklch(25% 0.01 120);
+    --muted-foreground: oklch(65% 0 0);
+    --destructive: oklch(60% 0.20 25);
+    --destructive-foreground: oklch(98% 0 0);
+    --border: oklch(30% 0.01 120);
+    --input: oklch(30% 0.01 120);
+    --ring: oklch(65% 0.15 180);
+    --success: oklch(70% 0.15 145);
+    --warning: oklch(80% 0.15 85);
+    
+    --supermarket-green: oklch(60% 0.12 140);
+    --supermarket-wood: oklch(45% 0.08 60);
+    --supermarket-fresh: oklch(70% 0.08 150);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      url('/assets/generated/supermarket-atmosphere-background@1920x1080.png'),
+      url('/assets/generated/blurred-supermarket-shelves@1920x1080.png'),
+      linear-gradient(135deg, oklch(var(--supermarket-green) / 0.08) 0%, transparent 50%),
+      linear-gradient(225deg, oklch(var(--supermarket-wood) / 0.05) 0%, transparent 50%);
+    background-size: cover, cover, 100% 100%, 100% 100%;
+    background-position: center, center, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-attachment: fixed, fixed, fixed, fixed;
+    background-blend-mode: soft-light, overlay, normal, normal;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-pulse-scale {
+    animation: pulseScale 1s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseScale {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  .drop-shadow-soft {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+  }
+
+  .drop-shadow-soft-lg {
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+  }
+  
+  .supermarket-bg {
+    position: relative;
+  }
+  
+  .supermarket-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      url('/assets/generated/natural-produce-background@1920x1080.png'),
+      url('/assets/generated/warm-green-wood-gradient@1920x1080.png'),
+      linear-gradient(135deg, oklch(var(--supermarket-fresh) / 0.15) 0%, transparent 40%),
+      linear-gradient(225deg, oklch(var(--supermarket-wood) / 0.10) 0%, transparent 40%);
+    background-size: cover, cover, 100% 100%, 100% 100%;
+    background-position: center, center, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-blend-mode: soft-light, overlay, normal, normal;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .supermarket-texture {
+    position: relative;
+  }
+  
+  .supermarket-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      url('/assets/generated/supermarket-aisle-texture@1024x768.png'),
+      url('/assets/generated/supermarket-floor-texture@1024x768.png'),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, oklch(var(--supermarket-wood) / 0.03) 2px, oklch(var(--supermarket-wood) / 0.03) 4px);
+    background-size: cover, cover, auto;
+    background-position: center, center, center;
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-blend-mode: overlay, soft-light, normal;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .supermarket-card {
+    position: relative;
+    background: 
+      linear-gradient(135deg, oklch(var(--card) / 0.92), oklch(var(--card) / 0.96)),
+      url('/assets/generated/warm-wood-texture-background@1024x768.png');
+    background-size: 100% 100%, cover;
+    background-position: center, center;
+    background-blend-mode: normal, soft-light;
+    backdrop-filter: blur(12px) saturate(1.2);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+  }
+  
+  .supermarket-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(135deg, oklch(var(--supermarket-green) / 0.03), transparent 50%),
+      linear-gradient(225deg, oklch(var(--supermarket-wood) / 0.02), transparent 50%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .supermarket-card > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.qr-frame {
+  position: relative;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, oklch(60% 0.15 180 / 0.1), oklch(65% 0.12 210 / 0.1));
+  border: 2px solid oklch(60% 0.15 180);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px oklch(60% 0.15 180 / 0.2);
+}
+
+.qr-frame::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, oklch(60% 0.15 180), oklch(65% 0.12 210));
+  border-radius: 1rem;
+  z-index: -1;
+  opacity: 0;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.qr-frame:hover::before {
+  animation: shimmer 1.5s ease-in-out infinite;
+}

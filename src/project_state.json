@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-rebuild-redeploy-the-existing-buddydeals-codebase-so-that-draft-version-70-becomes-active-again-and-can-be-opened-in-the-preview-environment",
+      "title": "Rebuild/redeploy the existing BuddyDeals codebase so that draft version 70 becomes active again and can be opened in the preview environment.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "projectName": "Re-activate and open BuddyDeals draft version 70",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

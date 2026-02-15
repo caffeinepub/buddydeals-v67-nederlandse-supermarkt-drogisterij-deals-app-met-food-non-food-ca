@@ -1,2 +1,3 @@
-# buddydeals-v67-nederlandse-supermarkt-drogisterij-deals-app-met-food-non-food-ca
-Exported from Caffeine project: Re-activate and open BuddyDeals draft version 70
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
