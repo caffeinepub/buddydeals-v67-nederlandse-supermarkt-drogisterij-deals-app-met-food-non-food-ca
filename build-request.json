@@ -1,0 +1,21 @@
+{
+  "kind": "build_request",
+  "title": "Open BuddyDeals draft v70 in preview (rebuild/redeploy)",
+  "priority": "normal",
+  "requirements": [],
+  "constraints": [
+    "Do not introduce functional, UI, or routing changes; this is a re-activation/redeploy only.",
+    "Preserve existing backend state; do not reset or break stored user data/profiles.",
+    "Respect the single-actor Motoko backend architecture (all logic in backend/main.mo); only add backend/migration.mo if a state upgrade is required.",
+    "Do not modify any frontend files under immutablePaths (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui)."
+  ],
+  "nonGoals": [
+    "Adding new product features or workflows.",
+    "Changing the visual design/theme beyond what is necessary to rebuild and open the preview.",
+    "Backend schema changes or data migrations unless strictly required to successfully redeploy."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

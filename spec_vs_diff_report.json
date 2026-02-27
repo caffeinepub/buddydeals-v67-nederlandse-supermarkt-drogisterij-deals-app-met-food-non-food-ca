@@ -1,0 +1,21 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T10:52:42.906Z",
+  "summary": "BuildRequest specifies a redeploy/re-activation only with no functional/UI/routing changes and no explicit requirements. The diff shows modifications to backend/main.mo (content truncated, so impact is unclear) and an update to project_state.json that introduces a synthesized feature entry referencing REQ-1, which is not present in the BuildRequest.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Introduced a new tracked feature in project_state.json that claims a requirement REQ-1 and describes rebuilding/redeploying BuddyDeals draft v70 as an implemented feature, despite the BuildRequest listing no requirements and no REQ IDs.",
+      "reason": "BuildRequest explicitly states \"Requirements: none\"; the diff adds metadata referencing \"REQ-1\" and a feature id/title not grounded in the request's requirements section.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "backend/main.mo",
+    "project_state.json"
+  ]
+}
